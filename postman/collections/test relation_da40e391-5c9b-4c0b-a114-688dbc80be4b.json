@@ -1,0 +1,179 @@
+{
+    "info": {
+        "_postman_id": "286d43ed-c553-4cd3-8bb2-111e880b912f",
+        "name": "test relation",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Sample endpoint: Returns details about a particular user",
+            "id": "5d9ffca1-9d8c-4dff-83ae-63c1ae356545",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/user?id=31622708",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "user"
+                    ],
+                    "query": [
+                        {
+                            "key": "id",
+                            "value": "31622708",
+                            "description": "(Required) ID of the user"
+                        }
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "id": "38339dd1-f0e7-47f0-8444-53dd28542cd3",
+                    "name": "Sample response: Details about a user by ID",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/user?id=31622708",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "user"
+                            ],
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "31622708"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": "A link to the next page of responses",
+                            "key": "x-next",
+                            "value": "nulla non sed"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"id\": 58137883,\n \"name\": \"id nostrud\",\n \"tag\": \"magna elit voluptate\"\n}"
+                },
+                {
+                    "id": "f7ed0dd8-b537-4cfb-99d4-4f8ced384b6a",
+                    "name": "Unexpected error",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/user?id=31622708",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "user"
+                            ],
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "31622708"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "Internal Server Error",
+                    "code": 500,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n \"code\": -24353239,\n \"message\": \"veniam in\"\n}"
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "username",
+                "value": "<Basic Auth Username>",
+                "type": "string"
+            },
+            {
+                "key": "password",
+                "value": "<Basic Auth Password>",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "352be508-716e-4a52-90b0-cc454be5fda2",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "c12b456a-f77d-41a4-8203-1cb6ce1d3b4a",
+                "type": "text/javascript",
+                "exec": [
+                    "pm.test(\"Status test\", function () {",
+                    "    pm.response.to.have.status(500);",
+                    "});",
+                    "pm.test(\"Status test\", function () {",
+                    "    pm.response.to.have.status(403);",
+                    "});",
+                    "pm.test(\"Status test\", function () {",
+                    "    pm.response.to.have.status(404);",
+                    "});",
+                    "pm.test(\"Status test\", function () {",
+                    "    pm.response.to.have.status(404);",
+                    "});",
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "29230f98-abb6-4507-8606-471edb623280",
+            "key": "baseUrl",
+            "value": "https://fffc2eb4-dbcf-4c6d-bc30-c3cb2e7ecfa6.mock.pstmn.io"
+        }
+    ]
+}
